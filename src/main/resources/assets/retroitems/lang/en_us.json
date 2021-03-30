@@ -1,0 +1,11 @@
+{
+  "text.autoconfig.retroitems.title": "Retro Items",
+  "text.autoconfig.retroitems.option.classicDraw": "Fast Item Rendering",
+  "text.autoconfig.retroitems.option.shadows": "Draw Shadows",
+  "text.autoconfig.retroitems.option.allFlat": "All Items Flat",
+  "text.autoconfig.retroitems.option.rotatingItems": "Rotate Items",
+  "text.autoconfig.retroitems.option.blocksFlat": "Flat Blocks",
+  "text.autoconfig.retroitems.option.merge": "Merge Dropped Items",
+  "text.autoconfig.retroitems.option.blockDrops": "Classic Block Drops",
+  "text.autoconfig.retroitems.option.mobDrops": "Classic Mob Drops"
+}

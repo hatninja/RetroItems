@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "retroitems",
+  "version": "1.0.0",
+
+  "name": "Retro Items",
+  "description": "Fast items in modern minecraft.",
+  "authors": [
+    "Smol Fofa"
+  ],
+  "contact": {
+    "homepage": "https://github.com/hatninja/",
+    "sources": "https://github.com/hatninja/RetroItems/"
+  },
+
+  "license": "MIT",
+  "icon": "assets/retroitems/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "smol.retroitems.RetroItems"
+    ],
+    "modmenu": [
+      "smol.retroitems.config.RetroItemsMenu"
+    ]
+  },
+  "mixins": [
+    "retroitems.mixins.json"
+  ],
+
+  "depends": {
+    "fabric": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
