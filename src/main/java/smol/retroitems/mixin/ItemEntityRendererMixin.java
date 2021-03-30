@@ -16,6 +16,7 @@ import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Quaternion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,6 +30,8 @@ import java.util.Random;
 public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity> {
     @Shadow private ItemRenderer itemRenderer;
     @Shadow private Random random;
+
+    private static final Quaternion flipQuat = Vector3f.POSITIVE_Y.getRadialQuaternion(3.14159F);
 
     protected ItemEntityRendererMixin(EntityRenderDispatcher dispatcher) {
         super(dispatcher);
@@ -46,20 +49,24 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
         boolean hasDepth = bakedModel.hasDepth() && !RetroItems.CONFIG.blocksFlat;
 
         //Hovering
-        float hoverOffset = MathHelper.sin(((float) itemEntity.getAge() + tickDelta) / 10.0F + itemEntity.hoverHeight) * 0.1F + 0.1F;
+        float hoverOffset = MathHelper.sin((itemEntity.getAge() + tickDelta) / 10.0F + itemEntity.hoverHeight) * 0.1F + 0.1F;
         float hoverScale = bakedModel.getTransformation().getTransformation(ModelTransformation.Mode.GROUND).scale.getY();
         matrixStack.translate(0.0D, (hoverOffset + 0.25F * hoverScale), 0.0D);
 
+        //Rotation
         boolean doRotate = hasDepth || RetroItems.CONFIG.rotatingItems;
-
         if (doRotate) {
-            float n = (float) itemEntity.getAge() / 20.0F + 3.14159F;
-            matrixStack.multiply(Vector3f.POSITIVE_Y.getRadialQuaternion(n));
+            float rotateBy = itemEntity.getAge() / 20.0F;
+            matrixStack.multiply(Vector3f.POSITIVE_Y.getRadialQuaternion(rotateBy));
         } else {
             //Face the camera
             matrixStack.multiply(this.dispatcher.getRotation());
+            if (!RetroItems.CONFIG.classicDraw) {
+                matrixStack.multiply(flipQuat);
+            }
         }
 
+        //Drawing
         if (hasDepth || !RetroItems.CONFIG.classicDraw) {
             this.itemRenderer.renderItem(itemStack, ModelTransformation.Mode.GROUND, false, matrixStack, vertexConsumerProvider, light, OverlayTexture.DEFAULT_UV, bakedModel);
         } else {
@@ -76,6 +83,13 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
             drawItemVertex(entry, vertexConsumer, -0.25F, -0.125F, 0F, maxU, maxV, light);
             drawItemVertex(entry, vertexConsumer, -0.25F, 0.375F, 0F, maxU, minV, light);
             drawItemVertex(entry, vertexConsumer, 0.25F, 0.375F, 0F, minU, minV, light);
+
+            if (doRotate) { //There's no need to draw the backside if it always faces the camera.
+                drawItemVertex(entry, vertexConsumer, -0.25F, -0.125F, 0F, maxU, maxV, light);
+                drawItemVertex(entry, vertexConsumer, 0.25F, -0.125F, 0F, minU, maxV, light);
+                drawItemVertex(entry, vertexConsumer, 0.25F, 0.375F, 0F, minU, minV, light);
+                drawItemVertex(entry, vertexConsumer, -0.25F, 0.375F, 0F, maxU, minV, light);
+            }
         }
 
         matrixStack.pop();
