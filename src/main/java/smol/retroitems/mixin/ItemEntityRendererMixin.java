@@ -56,7 +56,7 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
         //Rotation
         boolean doRotate = hasDepth || RetroItems.CONFIG.rotatingItems;
         if (doRotate) {
-            float rotateBy = itemEntity.getAge() / 20.0F;
+            float rotateBy = (itemEntity.getAge() + tickDelta) / 20.0F;
             matrixStack.multiply(Vector3f.POSITIVE_Y.getRadialQuaternion(rotateBy));
         } else {
             //Face the camera
