@@ -19,8 +19,10 @@ public class RetroItemsConfig implements ConfigData {
     public boolean blocksFlat = false;
     @Comment("Allow dropped items to merge.")
     public boolean merge = false;
-    @Comment("Enable classic block drop behaviour.")
+    @Comment("Enable blocks to drop items individually.")
     public boolean blockDrops = true;
-    @Comment("Enable classic mob drop behaviour.")
+    @Comment("Enable mobs to drop items individually.")
     public boolean mobDrops = true;
+    @Comment("Enable explosions to drop items individually.")
+    public boolean explosionDrops = true;
 }

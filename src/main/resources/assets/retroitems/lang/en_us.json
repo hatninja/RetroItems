@@ -6,6 +6,7 @@
   "text.autoconfig.retroitems.option.rotatingItems": "Rotate Items",
   "text.autoconfig.retroitems.option.blocksFlat": "Flat Blocks",
   "text.autoconfig.retroitems.option.merge": "Merge Dropped Items",
-  "text.autoconfig.retroitems.option.blockDrops": "Classic Block Drops",
-  "text.autoconfig.retroitems.option.mobDrops": "Classic Mob Drops"
+  "text.autoconfig.retroitems.option.blockDrops": "Seperate Block Drops",
+  "text.autoconfig.retroitems.option.mobDrops": "Seperate Mob Drops",
+  "text.autoconfig.retroitems.option.explosionDrops": "Seperate Explosion Drops"
 }
