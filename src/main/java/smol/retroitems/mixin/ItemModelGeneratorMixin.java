@@ -30,7 +30,7 @@ public abstract class ItemModelGeneratorMixin  {
         map.put(Direction.SOUTH, new ModelElementFace(null, layer, key, new ModelElementTexture(new float[]{0.0F, 0.0F, 16.0F, 16.0F}, 0)));
         map.put(Direction.NORTH, new ModelElementFace(null, layer, key, new ModelElementTexture(new float[]{16.0F, 0.0F, 0.0F, 16.0F}, 0)));
         List<ModelElement> list = Lists.newArrayList();
-        list.add(new ModelElement(new Vector3f(0.0F, 0.0F, 8.0F), new Vector3f(16.0F, 16.0F, 8.0F), map, null, false));
+        list.add(new ModelElement(new Vector3f(0.0F, 0.0F, 8.49F), new Vector3f(16.0F, 16.0F, 8.50F), map, null, false));
         cir.setReturnValue(list);
     }
 }
