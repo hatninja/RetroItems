@@ -23,6 +23,8 @@ public class RetroItemsConfig implements ConfigData {
     public boolean blockDrops = true;
     @Comment("Enable mobs to drop items individually.")
     public boolean mobDrops = true;
+    @Comment("Enable players to drop items individually.")
+    public boolean playerDrops = true;
     @Comment("Enable explosions to drop items individually.")
     public boolean explosionDrops = true;
 }

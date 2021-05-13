@@ -7,7 +7,8 @@
     "BlockMixin",
     "EntityMixin",
     "ExplosionMixin",
-    "ItemEntityMixin"
+    "ItemEntityMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
     "ItemEntityRendererMixin",
