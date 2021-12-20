@@ -1,14 +1,14 @@
 package smol.retroitems.config;
 
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 import smol.retroitems.RetroItems;
 
 @Config(name = RetroItems.MOD_ID)
 public class RetroItemsConfig implements ConfigData {
-    @Comment("Enable fast item rendering.")
-    public boolean classicDraw = true;
+    @Comment("Enable fast item rendering. (Some items will not render properly.)")
+    public boolean classicDraw = false;
     @Comment("Whether shadows will draw under items.")
     public boolean shadows = false;
     @Comment("Generate item models as flat. (Reload using F3+T)")

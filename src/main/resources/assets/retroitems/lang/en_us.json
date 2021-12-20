@@ -6,7 +6,8 @@
   "text.autoconfig.retroitems.option.rotatingItems": "Rotate Items",
   "text.autoconfig.retroitems.option.blocksFlat": "Flat Blocks",
   "text.autoconfig.retroitems.option.merge": "Merge Dropped Items",
-  "text.autoconfig.retroitems.option.blockDrops": "Seperate Block Drops",
-  "text.autoconfig.retroitems.option.mobDrops": "Seperate Mob Drops",
-  "text.autoconfig.retroitems.option.explosionDrops": "Seperate Explosion Drops"
+  "text.autoconfig.retroitems.option.blockDrops": "Split Block Drops",
+  "text.autoconfig.retroitems.option.mobDrops": "Split Entity Drops",
+  "text.autoconfig.retroitems.option.explosionDrops": "Split Explosion Drops",
+  "text.autoconfig.retroitems.option.playerDrops": "Split Player Tossing"
 }

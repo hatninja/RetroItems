@@ -51,10 +51,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 				} else {
 					spreadDist *= 0.04F; //It's +0.02 for funsies~
 
-					float sinPitch = MathHelper.sin(this.pitch * 0.017453292F);
-					float cosPitch = MathHelper.cos(this.pitch * 0.017453292F);
-					float sinYaw = MathHelper.sin(this.yaw * 0.017453292F);
-					float cosYaw = MathHelper.cos(this.yaw * 0.017453292F);
+					float sinPitch = MathHelper.sin(this.getPitch() * 0.017453292F);
+					float cosPitch = MathHelper.cos(this.getPitch() * 0.017453292F);
+					float sinYaw = MathHelper.sin(this.getYaw() * 0.017453292F);
+					float cosYaw = MathHelper.cos(this.getYaw() * 0.017453292F);
 					float distance = 0.3F;
 
 					itemEntity.setVelocity((-sinYaw*cosPitch * distance) + Math.sin(spreadYaw) * spreadDist, (-sinPitch * distance + 0.1F + (random.nextFloat() - random.nextFloat()) * 0.1F), (cosYaw*cosPitch * distance) + Math.cos(spreadYaw) * spreadDist);

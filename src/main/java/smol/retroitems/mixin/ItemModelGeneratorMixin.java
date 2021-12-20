@@ -7,8 +7,8 @@ import net.minecraft.client.render.model.json.ModelElement;
 import net.minecraft.client.render.model.json.ModelElementFace;
 import net.minecraft.client.render.model.json.ModelElementTexture;
 import net.minecraft.client.texture.Sprite;
-import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -30,7 +30,7 @@ public abstract class ItemModelGeneratorMixin  {
         map.put(Direction.SOUTH, new ModelElementFace(null, layer, key, new ModelElementTexture(new float[]{0.0F, 0.0F, 16.0F, 16.0F}, 0)));
         map.put(Direction.NORTH, new ModelElementFace(null, layer, key, new ModelElementTexture(new float[]{16.0F, 0.0F, 0.0F, 16.0F}, 0)));
         List<ModelElement> list = Lists.newArrayList();
-        list.add(new ModelElement(new Vector3f(0.0F, 0.0F, 8.49F), new Vector3f(16.0F, 16.0F, 8.50F), map, null, false));
+        list.add(new ModelElement(new Vec3f(0.0F, 0.0F, 8.49F), new Vec3f(16.0F, 16.0F, 8.50F), map, null, false));
         cir.setReturnValue(list);
     }
 }
